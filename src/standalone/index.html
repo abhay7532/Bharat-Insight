@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bharat Insight – AI Driven Data Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     LANDING PAGE
+═══════════════════════════════════════════ -->
+<div id="landing-page" class="page active">
+
+  <!-- Nav -->
+  <nav class="landing-nav glass" id="mainNav">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-mark">BI</div>
+        <span class="logo-text">Bharat<span class="gradient-text">Insight</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#analytics">Analytics</a>
+      </div>
+      <div class="nav-cta">
+        <button class="btn-ghost" onclick="showAuth()">Sign In</button>
+        <button class="btn-primary" onclick="showDashboard()">Explore Dashboard →</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div class="hero-left reveal">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Live Data Intelligence Platform · India
+        </div>
+        <h1 class="hero-headline">
+          AI Powered<br/>
+          <span class="gradient-text">Public Data</span><br/>
+          Intelligence<br/>
+          <span class="hero-sub">for India</span>
+        </h1>
+        <p class="hero-desc">
+          Analyze 100K+ government records across all Indian states. AI-driven insights from Gemini, real-time filtering, and multi-department access.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary btn-lg" onclick="showDashboard()">Explore Dashboard →</button>
+          <a href="#analytics" class="btn-ghost btn-lg">View Dataset ↓</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-val gradient-text">100K+</span><span class="stat-label">Data Rows</span></div>
+          <div class="stat"><span class="stat-val gradient-text">30</span><span class="stat-label">Indian States</span></div>
+          <div class="stat"><span class="stat-val gradient-text">3</span><span class="stat-label">Departments</span></div>
+          <div class="stat"><span class="stat-val gradient-text">10</span><span class="stat-label">Years of Data</span></div>
+        </div>
+      </div>
+
+      <div class="hero-right reveal delay-200">
+        <div class="browser-card glow-purple">
+          <div class="browser-chrome">
+            <div class="chrome-dots"><span></span><span></span><span></span></div>
+            <div class="chrome-url">bharatinsight.gov.in/dashboard</div>
+          </div>
+          <div class="browser-body">
+            <div class="preview-chart-card glass">
+              <div class="preview-chart-header">
+                <div><b>Literacy Rate by State</b><div class="text-muted small">2024 · All States</div></div>
+                <span class="badge-green">+2.3%</span>
+              </div>
+              <div class="mini-bars" id="miniBars"></div>
+            </div>
+            <div class="preview-terminal glass">
+              <div class="terminal-header">
+                <span class="dot-indigo"></span>
+                <span class="text-indigo small">Gemini AI Insight</span>
+              </div>
+              <div class="terminal-body" id="streamingTerminal"></div>
+            </div>
+            <div class="preview-table glass">
+              <div class="pt-header">
+                <span>State</span><span>Year</span><span>Literacy</span><span>Health</span>
+              </div>
+              <div class="pt-row"><span>Kerala</span><span>2024</span><span class="text-indigo">94.0%</span><span class="text-green">89</span></div>
+              <div class="pt-row"><span>Goa</span><span>2024</span><span class="text-indigo">88.7%</span><span class="text-green">81</span></div>
+              <div class="pt-row"><span>Delhi</span><span>2024</span><span class="text-indigo">86.3%</span><span class="text-green">78</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Bento -->
+  <section id="features" class="section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="badge">Platform Features</div>
+        <h2 class="section-title">Everything you need to<br/><span class="gradient-text">analyze India's data</span></h2>
+        <p class="section-desc">Powerful tools built for government data analysts, researchers, and policymakers.</p>
+      </div>
+      <div class="bento-grid">
+        <div class="bento-card bento-large reveal">
+          <div class="bento-icon">🤖</div>
+          <h3>AI Insights via Gemini</h3>
+          <p>Stream real-time analysis of any filtered dataset. Ask natural language questions and get data-backed insights instantly.</p>
+          <div class="ai-demo-box">
+            <div class="ai-query">▶ "Which state shows highest literacy growth?"</div>
+            <div class="ai-result indigo">🔍 Kerala leads with 94% literacy, up 3.2% from 2020</div>
+            <div class="ai-result blue">📈 Consistent 2% annual growth across southern states</div>
+            <div class="ai-result amber">💡 Expand KGBV scheme to Bihar & UP immediately</div>
+          </div>
+        </div>
+        <div class="bento-card reveal delay-100">
+          <div class="bento-icon">⚡</div>
+          <h3>Real-Time Analysis</h3>
+          <p>Process and visualize 100K+ rows instantly with virtualized rendering.</p>
+          <div class="sparkline" id="sparkline1"></div>
+        </div>
+        <div class="bento-card reveal delay-150">
+          <div class="bento-icon">🏛️</div>
+          <h3>Multi-Department Access</h3>
+          <p>Switch between Health, Agriculture, and Education ministries with contextual themes.</p>
+          <div class="dept-tags">
+            <span class="tag-green">Health</span>
+            <span class="tag-amber">Agriculture</span>
+            <span class="tag-indigo">Education</span>
+          </div>
+        </div>
+        <div class="bento-card reveal delay-200">
+          <div class="bento-icon">📊</div>
+          <h3>100K+ Row Handling</h3>
+          <p>Virtualized table renders only visible rows, keeping performance buttery smooth.</p>
+          <div class="mini-bars-sm" id="miniBarsSmall"></div>
+        </div>
+        <div class="bento-card reveal delay-250">
+          <div class="bento-icon">🔍</div>
+          <h3>Smart Filtering</h3>
+          <p>Multi-column filters, fuzzy search, keyboard shortcuts, and instant results.</p>
+          <div class="filter-demo">state="Kerala" year=2024 lit>85%</div>
+        </div>
+        <div class="bento-card reveal delay-300">
+          <div class="bento-icon">🇮🇳</div>
+          <h3>Public Data Intelligence</h3>
+          <p>Standardized schemas for Census, NHM, Agricultural surveys and Economic indicators.</p>
+          <div class="tag-row"><span class="tag-ghost">Census</span><span class="tag-ghost">NHM</span><span class="tag-ghost">NSSO</span><span class="tag-ghost">DPIIT</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section id="architecture" class="section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="badge badge-cyan">Platform Architecture</div>
+        <h2 class="section-title">Built for <span class="gradient-text">scale</span> and <span class="text-cyan">performance</span></h2>
+      </div>
+      <div class="arch-grid">
+        <div class="arch-card reveal" style="--arch-color:#6366f1">
+          <div class="arch-icon">🎨</div>
+          <div class="arch-label">Frontend Layer</div>
+          <div class="arch-tech">Next.js 14</div>
+          <div class="arch-tech">TypeScript</div>
+          <div class="arch-tech">Framer Motion</div>
+          <div class="arch-tech">Tailwind CSS</div>
+        </div>
+        <div class="arch-card reveal delay-100" style="--arch-color:#8b5cf6">
+          <div class="arch-icon">⚙️</div>
+          <div class="arch-label">State & Data</div>
+          <div class="arch-tech">Zustand Store</div>
+          <div class="arch-tech">TanStack Query</div>
+          <div class="arch-tech">TanStack Table</div>
+          <div class="arch-tech">React Virtual</div>
+        </div>
+        <div class="arch-card reveal delay-200" style="--arch-color:#06b6d4">
+          <div class="arch-icon">🤖</div>
+          <div class="arch-label">AI & Intelligence</div>
+          <div class="arch-tech">Google Gemini 1.5</div>
+          <div class="arch-tech">Streaming SSE</div>
+          <div class="arch-tech">Context Awareness</div>
+          <div class="arch-tech">NLP Analysis</div>
+        </div>
+        <div class="arch-card reveal delay-300" style="--arch-color:#10b981">
+          <div class="arch-icon">🔐</div>
+          <div class="arch-label">Backend & Auth</div>
+          <div class="arch-tech">Supabase Auth</div>
+          <div class="arch-tech">Row Level Security</div>
+          <div class="arch-tech">Role-Based Access</div>
+          <div class="arch-tech">Multi-tenant</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Analytics Preview -->
+  <section id="analytics" class="section">
+    <div class="section-inner">
+      <div class="analytics-grid">
+        <div class="analytics-chart-col reveal">
+          <div class="chart-card glass-strong">
+            <div class="chart-header">
+              <div><b>Literacy Rate by State</b><div class="text-muted small">Top performing · 2024</div></div>
+              <span class="badge-live">Live Data</span>
+            </div>
+            <div id="horizontalBars" class="h-bars-container"></div>
+            <div class="chart-footer">
+              <span>Source: Census of India 2024</span>
+              <span class="text-green">↑ 2.3% from 2023</span>
+            </div>
+          </div>
+        </div>
+        <div class="analytics-text-col reveal delay-200">
+          <div class="badge badge-purple">AI-Powered Analytics Preview</div>
+          <h2 class="section-title left">Turn raw data into <span class="gradient-text">policy decisions</span></h2>
+          <p class="section-desc left">From 100,000 rows of government data to clear, actionable insights in seconds. Our Gemini AI reads your filtered view and surfaces what matters most.</p>
+          <div class="feature-list">
+            <div class="feature-item"><span>🔍</span> Analyze literacy trends across all 28 states</div>
+            <div class="feature-item"><span>📈</span> Compare agricultural output year-over-year</div>
+            <div class="feature-item"><span>💡</span> Get AI recommendations for resource allocation</div>
+            <div class="feature-item"><span>⚡</span> Sub-100ms filter response on 100K rows</div>
+          </div>
+          <button class="btn-primary btn-lg" onclick="showDashboard()">Launch Dashboard →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="logo-mark">BI</div>
+            <span class="logo-text">Bharat<span class="gradient-text">Insight</span></span>
+          </div>
+          <p>AI-Powered Public Data Intelligence Platform for India.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-title">Platform</div>
+          <div>Dashboard</div><div>Analytics</div><div>AI Insights</div><div>Datasets</div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-title">Departments</div>
+          <div>🏥 Health</div><div>🌾 Agriculture</div><div>📚 Education</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Bharat Insight. Government of India Data Initiative.</span>
+        <span class="status-dot"><span class="dot-green"></span>All systems operational</span>
+      </div>
+    </div>
+  </footer>
+</div><!-- end landing -->
+
+<!-- ═══════════════════════════════════════════
+     AUTH PAGE
+═══════════════════════════════════════════ -->
+<div id="auth-page" class="page">
+  <div class="auth-bg-grid"></div>
+  <div class="auth-glow"></div>
+  <div class="auth-card glass-strong">
+    <div class="auth-logo">
+      <div class="logo-mark logo-lg">BI</div>
+      <h1>BharatInsight</h1>
+      <p>Sign in to your workspace</p>
+    </div>
+    <div class="demo-creds glass">
+      <div class="demo-title">Demo Credentials</div>
+      <div class="demo-grid">
+        <button class="demo-btn" onclick="fillAdmin()">
+          <div class="text-indigo">Admin</div>
+          <div class="text-muted small">Full access</div>
+        </button>
+        <button class="demo-btn" onclick="fillViewer()">
+          <div class="text-green">Viewer</div>
+          <div class="text-muted small">Read only</div>
+        </button>
+      </div>
+    </div>
+    <div class="auth-form">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="authEmail" placeholder="you@bharatinsight.gov.in" class="glass-input" />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="authPassword" placeholder="••••••••" class="glass-input" />
+      </div>
+      <div id="authError" class="auth-error hidden"></div>
+      <button class="btn-primary btn-full" onclick="handleLogin()">Sign In →</button>
+    </div>
+    <div class="auth-back">
+      <button onclick="showPage('landing-page')" class="text-link">← Back to home</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     DASHBOARD
+═══════════════════════════════════════════ -->
+<div id="dashboard-page" class="page">
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sb-logo">
+      <div class="logo-mark sm">BI</div>
+      <span class="sb-logo-text">Bharat<span class="gradient-text">Insight</span></span>
+    </div>
+    <div class="sb-section">
+      <div class="sb-section-title">Department</div>
+      <button class="sb-dept-btn active" data-dept="education" onclick="switchDept('education', this)">
+        <span>📚</span><span class="sb-text">Education</span>
+      </button>
+      <button class="sb-dept-btn" data-dept="health" onclick="switchDept('health', this)">
+        <span>🏥</span><span class="sb-text">Health</span>
+      </button>
+      <button class="sb-dept-btn" data-dept="agriculture" onclick="switchDept('agriculture', this)">
+        <span>🌾</span><span class="sb-text">Agriculture</span>
+      </button>
+    </div>
+    <div class="sb-section">
+      <div class="sb-section-title">Navigation</div>
+      <a class="sb-nav-item active" href="#">📊 <span class="sb-text">Dashboard</span></a>
+      <a class="sb-nav-item" href="#">📈 <span class="sb-text">Analytics</span></a>
+      <a class="sb-nav-item" href="#">🗄️ <span class="sb-text">Datasets</span></a>
+      <a class="sb-nav-item" href="#">🤖 <span class="sb-text">AI Reports</span></a>
+    </div>
+    <div class="sb-footer">
+      <div class="sb-user">
+        <div class="user-avatar" id="userAvatar">A</div>
+        <div class="sb-text">
+          <div id="userName">Admin User</div>
+          <div id="userRole" class="role-admin">admin</div>
+        </div>
+      </div>
+      <button class="sb-logout" onclick="handleLogout()">🚪 <span class="sb-text">Sign Out</span></button>
+      <button class="sb-collapse" onclick="toggleSidebar()" title="Toggle sidebar">⟨</button>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <div class="dashboard-main" id="dashboardMain">
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <span id="topDeptIcon">📚</span>
+        <div>
+          <div class="topbar-title" id="topDeptName">Ministry of Education</div>
+          <div class="topbar-sub">Analytics Dashboard</div>
+        </div>
+      </div>
+      <button class="cmd-palette-trigger glass" onclick="openCmdPalette()">
+        <span>Search or run command...</span>
+        <kbd>⌘K</kbd>
+      </button>
+      <div class="topbar-right">
+        <button class="ai-toggle-btn" id="aiToggle" onclick="toggleAIPanel()">🤖 AI</button>
+        <div class="user-chip">
+          <div class="user-avatar sm" id="topUserAvatar">A</div>
+          <div>
+            <div class="topbar-user" id="topUserName">Admin</div>
+            <div class="role-admin" id="topUserRole">admin</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dashboard body -->
+    <div class="dashboard-body">
+      <!-- Data Grid area -->
+      <div class="grid-area" id="gridArea">
+        <!-- Filters -->
+        <div class="filters-bar">
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="globalSearch" placeholder="Search state, dept..." class="glass-input search-input" oninput="applyFilters()" />
+          </div>
+          <select id="stateFilter" class="glass-select" onchange="applyFilters()">
+            <option value="all">All States</option>
+          </select>
+          <select id="yearFilter" class="glass-select" onchange="applyFilters()">
+            <option value="all">All Years</option>
+          </select>
+          <select id="deptFilter" class="glass-select" onchange="applyFilters()">
+            <option value="all">All Departments</option>
+            <option value="Health">Ministry of Health</option>
+            <option value="Agriculture">Ministry of Agriculture</option>
+            <option value="Education">Ministry of Education</option>
+          </select>
+          <div class="row-count" id="rowCount">Loading...</div>
+        </div>
+
+        <!-- Table wrapper -->
+        <div class="table-wrapper" id="tableWrapper">
+          <div id="tableLoading" class="table-skeleton">
+            <div class="sk-row" style="height:44px"></div>
+            <div class="sk-row" style="height:44px; opacity:.8"></div>
+            <div class="sk-row" style="height:44px; opacity:.6"></div>
+            <div class="sk-row" style="height:44px; opacity:.4"></div>
+            <div class="sk-row" style="height:44px; opacity:.2"></div>
+          </div>
+          <div id="virtualTable" class="virtual-table hidden">
+            <table id="dataTable">
+              <thead id="tableHead"></thead>
+            </table>
+            <div id="virtualScroll" class="virtual-scroll-container" onscroll="onVirtualScroll()">
+              <div id="spacerTop"></div>
+              <table id="virtualBodyTable">
+                <tbody id="tableBody"></tbody>
+              </table>
+              <div id="spacerBottom"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <button onclick="prevPage()" id="prevBtn" class="glass">← Prev</button>
+          <span id="pageInfo">Page 1 of 1</span>
+          <button onclick="nextPage()" id="nextBtn" class="glass">Next →</button>
+          <span class="ml-auto" id="totalRows"></span>
+        </div>
+      </div>
+
+      <!-- AI Panel -->
+      <div class="ai-panel" id="aiPanel">
+        <div class="ai-header">
+          <div class="ai-title-row">
+            <span>🤖</span>
+            <div>
+              <div class="ai-title">AI Insight</div>
+              <div class="ai-subtitle">Powered by Gemini</div>
+            </div>
+          </div>
+          <button onclick="clearChat()" class="text-link small">Clear</button>
+          <div class="ai-context glass">
+            <span id="aiContextCount" class="text-indigo">0</span> rows in context
+          </div>
+        </div>
+
+        <div class="ai-messages" id="aiMessages">
+          <div class="ai-welcome">
+            <div style="font-size:2rem; margin-bottom:.5rem">✨</div>
+            <div>Ask AI to analyze your filtered data</div>
+          </div>
+          <div class="suggestions" id="suggestions">
+            <button class="suggestion-btn" onclick="runSuggestion(this)">Which state shows highest literacy growth?</button>
+            <button class="suggestion-btn" onclick="runSuggestion(this)">Compare agriculture output between states</button>
+            <button class="suggestion-btn" onclick="runSuggestion(this)">Give health index trend analysis</button>
+            <button class="suggestion-btn" onclick="runSuggestion(this)">Which states need urgent intervention?</button>
+          </div>
+        </div>
+
+        <div class="ai-thinking hidden" id="aiThinking">
+          <div class="thinking-spinner"></div>
+          <div>
+            <div class="thinking-label">Thinking...</div>
+            <div class="thinking-step" id="thinkingStep">Analyzing dataset...</div>
+          </div>
+        </div>
+
+        <div class="ai-input-area">
+          <input type="text" id="aiInput" placeholder="Ask about the data..." class="glass-input ai-input" onkeydown="if(event.key==='Enter') sendAI()" />
+          <button onclick="sendAI()" class="btn-primary ai-send">↑</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- end dashboard -->
+
+<!-- Command Palette -->
+<div id="cmdOverlay" class="cmd-overlay hidden" onclick="closeCmdPalette()"></div>
+<div id="cmdPalette" class="cmd-palette hidden">
+  <div class="cmd-search-row">
+    <span>🔍</span>
+    <input type="text" id="cmdInput" placeholder="Search commands..." onkeydown="cmdKeyDown(event)" oninput="filterCommands()" />
+    <kbd>ESC</kbd>
+  </div>
+  <div id="cmdList" class="cmd-list"></div>
+  <div class="cmd-footer">
+    <span>↑↓ navigate</span><span>↵ select</span><span>ESC close</span>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
